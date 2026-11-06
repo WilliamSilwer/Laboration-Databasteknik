@@ -29,3 +29,17 @@ CREATE TABLE songs_artists (
     CONSTRAINT fk_songs_artists_songs FOREIGN KEY (so_id) REFERENCES songs(so_id),
     CONSTRAINT fk_artists_songs_artists FOREIGN KEY (ar_id) REFERENCES artists(ar_id)
 );
+
+
+ALTER TABLE songs_artists
+DROP CONSTRAINT fk_songs_artists_songs;
+
+ALTER TABLE songs_artists
+ADD CONSTRAINT  fk_songs_artists_songs FOREIGN KEY (so_id) REFERENCES songs(so_id) ON DELETE CASCADE;
+
+ALTER TABLE songs_artists
+DROP CONSTRAINT fk_artists_songs_artists;
+
+ALTER TABLE songs_artists
+ADD CONSTRAINT fk_artists_songs_artists FOREIGN KEY (ar_id) REFERENCES artists (ar_id) ON DELETE CASCADE;
+
