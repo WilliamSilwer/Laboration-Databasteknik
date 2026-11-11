@@ -2,6 +2,8 @@ INSERT INTO albums (al_title, al_release_year)
 VALUES
 ('Det kommer aldrig va över för mig', 2013);
 
+SELECT * FROM albums;
+
 INSERT INTO songs (so_title, so_release_year, al_id)
 VALUES
 ('Valborg', 2013, 1),
@@ -71,6 +73,9 @@ FROM songs_artists
 JOIN songs ON songs_artists.so_id = songs.so_id
 JOIN artists ON songs_artists.ar_id = artists.ar_id
 ORDER BY songs.so_id; 
+
+INSERT INTO songs (so_title, so_release_year, al_id)
+VALUES ('Kom igen Lena', 2010, 999);
 
 UPDATE artists
 SET ar_country = 'Sverige'
