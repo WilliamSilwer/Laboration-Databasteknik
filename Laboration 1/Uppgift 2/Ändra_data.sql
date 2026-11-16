@@ -1,9 +1,17 @@
-SELECT product_name, unit_price FROM products
-WHERE category_id = 4;
+SELECT product_name, unit_price, category_id FROM products;
+
 
 UPDATE products
 SET unit_price = unit_price * 1.20
 WHERE category_id = 4;
+
+SELECT product_name, unit_price, category_id FROM products;
+
+
+
+
+
+
 
 SELECT suppliers.company_name, products.product_name, products.unit_price
 FROM products 

@@ -12,4 +12,3 @@ JOIN categories ON (categories.category_id = products.category_id);
 SELECT * FROM produktoversikt;
 
 
-s

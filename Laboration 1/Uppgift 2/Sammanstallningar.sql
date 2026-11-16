@@ -1,6 +1,12 @@
 SELECT COUNT(*) AS antal FROM employees
 WHERE title = 'Sales Representative';
 
+
+
+
+
+
+
 SELECT SUM(order_details.quantity * order_details.unit_price) AS totalvarde
 FROM orders
 JOIN order_details ON orders.order_id = order_details.order_id

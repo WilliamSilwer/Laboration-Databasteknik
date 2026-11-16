@@ -17,10 +17,19 @@ FROM products
 JOIN categories ON products.category_id = categories.category_id
 WHERE products.product_name = 'Lakkalikööri';
 
+
+
+
+
+
 SELECT products.product_name, suppliers.company_name
 FROM products
 JOIN suppliers ON products.supplier_id = suppliers.supplier_id
 WHERE products.product_name = 'Gravad lax';
+
+
+
+
 
 
 SELECT order_details.order_id, products.product_name, suppliers.company_name

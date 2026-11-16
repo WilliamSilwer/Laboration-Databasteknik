@@ -84,6 +84,15 @@ WHERE ar_name = 'Håkan Hellström';
 SELECT * FROM artists
 WHERE ar_name = 'Håkan Hellström';
 
+
+
+
+
+
+
+
+
+
 DELETE FROM songs_artists
 WHERE so_id = 14 AND ar_id = 4;
 

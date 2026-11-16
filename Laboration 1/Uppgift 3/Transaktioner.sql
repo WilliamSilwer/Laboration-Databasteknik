@@ -10,6 +10,13 @@ SELECT * FROM produktoversikt;
 
 ROLLBACK;
 
+
+
+
+
+
+
+
 SELECT * FROM produktoversikt;
 
 
@@ -23,9 +30,11 @@ UPDATE products
 SET produktland = 'Sverige'
 WHERE product_name = 'Honung';
 
+
 ROLLBACK;
 
-SELECT * FROM produktoversikt;
+SELECT * FROM produktoversikt
+WHERE produktnamn IN ('Honung', 'Aniseed Syrup');
 
 
 

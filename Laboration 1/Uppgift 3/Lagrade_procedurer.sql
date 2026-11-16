@@ -17,6 +17,9 @@ SELECT product_name, unit_price FROM products;
 
 
 
+
+
+
 CREATE PROCEDURE uppdatera_pris_kategori(p_category_id INT)
 LANGUAGE plpgsql
 AS $$
