@@ -5,7 +5,17 @@
     ViewData["Title"] = "Artister";
 }   
 
-<h1>Våra artister</h1>
+<h1>@ViewBag.Message</h1>
+
+<p>Antal artister: @ViewData["ArtistCount"]</p>
+
+<h2>Våra artister</h2>
+
+<p>
+    <a asp-controller="Music" asp-action="AddArtist">
+        Lägg till en ny artist
+    </a>
+</p>
 
 <table>
     <thead>
@@ -21,7 +31,9 @@
         {
             <tr>
                 <td>@artist.Id</td>
-                <td>@artist.Name</td>
+                <td> <a asp-controller="Music" 
+                        asp-action="Details" 
+                        asp-route-id="@artist.Id">@artist.Name</a></td>
                 <td>@artist.BirthYear</td>
                 <td>@artist.Country</td>
             </tr>

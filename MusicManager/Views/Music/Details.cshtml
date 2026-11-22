@@ -1,0 +1,10 @@
+@model MusicManager.Models.Artist
+
+<h1>ArtistInformation</h1>
+
+<p><strong>ID:</strong> @Model.Id</p>
+<p><strong>Namn:</strong> @Model.Name</p>
+<p><strong>Födelseår:</strong> @Model.BirthYear</p>
+<p><strong>Land:</strong> @Model.Country</p>
+
+<a asp-controller="Music" asp-action="Index">Tillbaka till artistlistan</a>

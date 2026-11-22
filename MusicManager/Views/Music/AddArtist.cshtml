@@ -1,0 +1,30 @@
+@model MusicManager.Models.Artist
+
+<h1>Lägg till artist</h1>
+
+<form asp-controller="Music" asp-action="AddArtist" method="post">
+
+    <div>
+        <label>Namn:</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label>Födelseår:</label>
+        <input asp-for="BirthYear" />
+        <span asp-validation-for="BirthYear"></span>
+    </div>
+    <div>
+        <label>Land:</label>
+        <input asp-for="Country" />
+        <span asp-validation-for="Country"></span>
+    </div>
+    <button type="submit">Lägg till</button>
+
+    <div asp-validation-summary="All"></div>
+
+</form>
+
+<a asp-controller="Music" asp-action="Index"> 
+    Tillbaka till artistlistan
+</a>

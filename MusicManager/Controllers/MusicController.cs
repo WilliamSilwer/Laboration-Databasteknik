@@ -18,12 +18,40 @@ namespace MusicManager.Controllers
 
      public IActionResult Index()
         {
+            ViewBag.Message = "Välkommen till Music Manager!";
+            ViewData["ArtistCount"] = artists.Count;
             return View(artists);
         }
-  }
 
+    public IActionResult Details(int id)
+        {
+            var artist = artists.FirstOrDefault(a => a.Id == id);
+            if (artist == null)
+            {
+                return NotFound();
+            }
+            return View(artist);
+        }
 
+        public IActionResult AddArtist()
+    {
+        return View();
+    }
 
+    [HttpPost]
+    public IActionResult AddArtist(Artist artist)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(artist);
+            }
+
+            artist.Id = artists.Max(a => a.Id) + 1;
+            artists.Add(artist);
+            return RedirectToAction("Index");
+        }
+    
+    }
 
 
 }
