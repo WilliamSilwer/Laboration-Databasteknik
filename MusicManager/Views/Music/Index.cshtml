@@ -20,22 +20,22 @@
 <table>
     <thead>
         <tr>
-            <th>ID</th>
             <th>Namn</th>
-            <th>Födelseår</th>
-            <th>Land</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var artist in Model)
         {
             <tr>
-                <td>@artist.Id</td>
                 <td> <a asp-controller="Music" 
                         asp-action="Details" 
-                        asp-route-id="@artist.Id">@artist.Name</a></td>
-                <td>@artist.BirthYear</td>
-                <td>@artist.Country</td>
+                        asp-route-id="@artist.Id">@artist.Name
+                    </a>
+                    @if (ViewBag.FavoriteArtistId == artist.Id)
+                    {
+                        <strong>  ⭐️ Min favorit </strong>
+                    }    
+                </td>
             </tr>
         }
     </tbody>

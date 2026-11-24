@@ -20,6 +20,7 @@ namespace MusicManager.Controllers
         {
             ViewBag.Message = "Välkommen till Music Manager!";
             ViewData["ArtistCount"] = artists.Count;
+            ViewBag.FavoriteArtistId = HttpContext.Session.GetInt32("FavoriteArtistId");
             return View(artists);
         }
 
@@ -31,6 +32,20 @@ namespace MusicManager.Controllers
                 return NotFound();
             }
             return View(artist);
+        }
+
+        [HttpPost]
+        public IActionResult SetFavorite(int id, bool isFavorite)
+        {
+            if (isFavorite) {
+                HttpContext.Session.SetInt32("FavoriteArtistId", id);
+            }
+            else
+            {
+                HttpContext.Session.Remove("FavoriteArtistId");
+            }
+
+            return RedirectToAction("Details", new {id = id});
         }
 
         public IActionResult AddArtist()

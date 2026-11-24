@@ -7,4 +7,14 @@
 <p><strong>Födelseår:</strong> @Model.BirthYear</p>
 <p><strong>Land:</strong> @Model.Country</p>
 
+<form asp-controller="Music" asp-action="SetFavorite" method="post" id="favoriteForm">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <label>
+        <input type="checkbox" name="isFavorite" value="true" checked="@(Context.Session.GetInt32("FavoriteArtistId") == Model.Id)" 
+        onchange="document.getElementById('favoriteForm').submit();"/>
+        Markera som favoritartist
+    </label>
+
+</form>
+
 <a asp-controller="Music" asp-action="Index">Tillbaka till artistlistan</a>
